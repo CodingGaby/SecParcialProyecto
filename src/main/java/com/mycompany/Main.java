@@ -1,5 +1,7 @@
 package com.mycompany;
 
+import com.mycompany.coffeeshop.*;
+
 import java.util.Scanner;
 
 public class Main {
@@ -15,10 +17,37 @@ public class Main {
 
             switch (opc){
                 case 'a' -> {
-                    System.out.println("La opcion es A");
+                    int[] cusArr = new int[5];
+
+                    System.out.println("Creemos tu arreglo!");
+
+                    for (int i = 0; i < cusArr.length; i++){
+                        System.out.print("\nDame el elemento "+(i+1)+":");
+                        cusArr[i] = inp.nextInt();
+                    }
+
+                    System.out.println("\n¿Que algoritmo de ordenamiento deseas usar?\n\t\ta.Bubble b.Selection c.Insertion");
+                    int opc2 = inp.next().charAt(0);
+
+                    switch (opc2){
+                        case 'a' -> sort.bubble(cusArr);
+                        case 'b' -> sort.selection(cusArr);
+                        case 'c' -> sort.insertion(cusArr);
+                        default -> System.out.println("Opcion invalida, ingresa una opción valida");
+                    }
+
+                    sort.printArray(cusArr);
                 }
                 case 'b' -> {
-                    System.out.println("La opcion es B");
+                    System.out.println("Vamos a jugar!");
+                    System.out.println("\n¿Qué deseas jugar?\n\t\ta.Conecta 4 b.Cafeteria");
+                    int opc2 = inp.next().charAt(0);
+
+                    switch (opc2){
+                        case 'a' -> Connect4Game.main(new String[0]);
+                        case 'b' -> CoffeeShopGame.main(new String[0]);
+                        default -> System.out.println("Opcion invalida, ingresa una opción valida");
+                    }
                 }
                 case 'q' ->{
                     System.out.println("Saliendo del programa...");
