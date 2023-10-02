@@ -3,11 +3,10 @@ public class Sort {
     public void printArray(int[] arr) {
         int size = arr.length;
         int i;
-        System.out.println("Array ordenado:");
-        System.out.print("[");
+        System.out.print("\u001B[36m[\u001B[0m");
         for (i = 0; i < size; i++)
             System.out.print(" "+arr[i]);
-        System.out.print(" ]");
+        System.out.print(" \u001B[36m]\u001B[0m");
         System.out.println();
     }
 

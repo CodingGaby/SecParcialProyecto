@@ -1,5 +1,4 @@
 package com.mycompany.coffeeshop;
-import java.util.Arrays;
 import java.util.Random;
 
 public class Customer {
@@ -80,7 +79,7 @@ public class Customer {
         System.out.println("Quiero ordenar:");
 
         for (Coffee coffee : order.getCoffees()) {
-            System.out.println("-" + coffee.getName());
+            System.out.println("\u001B[0m-\u001B[34m" + coffee.getName()+"\u001B[0m");
         }
     }
 }
