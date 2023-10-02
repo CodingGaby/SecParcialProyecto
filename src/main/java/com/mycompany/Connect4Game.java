@@ -26,7 +26,7 @@ public class Connect4Game {
             printBoard(board);
 
             // Solicitar al jugador actual que haga un movimiento
-            System.out.println("Jugador " + currentPlayer + ", es tu turno. Ingresa la columna (0-" + (cols - 1) + "): ");
+            System.out.println("\u001B[36mJugador " + currentPlayer + ", es tu turno. Ingresa la columna (0-" + (cols - 1) + "): \u001B[0m");
             int column = scanner.nextInt();
 
             // Validar la entrada del jugador y realizar el movimiento
@@ -37,7 +37,7 @@ public class Connect4Game {
                     currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
                 }
             } else {
-                System.out.println("Movimiento inválido. Inténtalo de nuevo.");
+                System.out.println("\u001B[31mMovimiento inválido. Inténtalo de nuevo.\u001B[0m");
             }
         }
 
@@ -45,7 +45,7 @@ public class Connect4Game {
         printBoard(board);
 
         // Anunciar al ganador
-        System.out.println("¡Jugador " + currentPlayer + " ha ganado!");
+        System.out.println("\u001B[32m¡Jugador " + currentPlayer + " ha ganado!\u001B[0m");
     }
 
     // Inicializa el tablero con espacios en blanco
@@ -59,14 +59,16 @@ public class Connect4Game {
 
     // Imprime el tablero actual
     public static void printBoard(char[][] board) {
-
-        for (char[] chars : board) {
-            for (int j = 0; j < board[0].length; j++) {
-                System.out.print("| " + chars[j] + " ");
-            }
-            System.out.println("|");
-        }
         System.out.println("  0   1   2   3   4   5   6");
+        for (char[] chars : board) {
+            System.out.print("| ");
+            for (int j = 0; j < board[0].length; j++) {
+                char piece = chars[j];
+                String color = (piece == 'X') ? "\u001B[31m" : (piece == 'O') ? "\u001B[33m" : "\u001B[37m";
+                System.out.print(color + piece + " \u001B[0m| ");
+            }
+            System.out.println();
+        }
     }
 
     // Verifica si un movimiento es válido
